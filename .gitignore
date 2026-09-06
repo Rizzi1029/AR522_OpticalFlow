@@ -8,6 +8,7 @@ checkpoints/
 weights/
 outputs/
 results/
+reports/sintel_benchmark_dryrun/
 *.pth
 *.pt
 *.ckpt
