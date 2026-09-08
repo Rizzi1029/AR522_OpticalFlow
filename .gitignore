@@ -9,6 +9,7 @@ weights/
 outputs/
 results/
 reports/sintel_benchmark_dryrun/
+reports/sintel_benchmark_full/
 *.pth
 *.pt
 *.ckpt
