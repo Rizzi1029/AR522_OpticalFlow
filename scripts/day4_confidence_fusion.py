@@ -780,9 +780,10 @@ def generate_diagnostic_plots(
 
     # Panel A: Macro Mean EPE Matrix
     im_a = ax_a.imshow(matrix_epe, cmap="viridis_r", aspect="auto")
-    bl_fns = macro_summary['baselines']['raw_flownets']['mean_epe']
-    bl_avg = macro_summary['baselines']['simple_average']['mean_epe']
-    bl_raft = macro_summary['baselines']['raw_raft']['mean_epe']
+    bl_dict = macro_summary.get("baselines_gt_valid", macro_summary.get("baselines", {}))
+    bl_fns = bl_dict.get("raw_flownets", {}).get("mean_epe", 0.0)
+    bl_avg = bl_dict.get("simple_average", {}).get("mean_epe", 0.0)
+    bl_raft = bl_dict.get("raw_raft", {}).get("mean_epe", 0.0)
 
     ax_a.set_title(
         f"Macro Mean EPE Across 36 Configurations (on Valid Fusion Masks)\n"
@@ -1262,6 +1263,7 @@ def main() -> None:
         "title": "Day 4 Confidence-Aware Optical Flow Fusion Prototype Analysis",
         "description": "Exploratory evaluation of 36 confidence-fusion configurations against 3 baselines across 8 canonical Sintel pairs",
         "samples": sample_metadata_list,
+        "baselines": macro_baselines,
         "baselines_gt_valid": macro_baselines,
         "configurations": macro_configurations,
         "best_configurations": best_configurations,
