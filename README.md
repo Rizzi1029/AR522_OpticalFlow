@@ -27,3 +27,8 @@ MPI Sintel
 - Ubuntu 26.04 LTS via WSL2
 - Python 3.14
 - PyTorch + CUDA
+
+## Research Checkpoints
+
+- **Day 6: Reliability-Aware Optical Flow Cascading**: See [docs/day6_checkpoint_note.md](docs/day6_checkpoint_note.md) for the complete benchmark validation of the forward-only `mag_median` cascade across all 1,041 Sintel training pairs (23-scene LOSO-CV, 10,001-point Pareto sweep, and ~43% operating point yielding 0.996 px EPE at 14.8 FPS).
+
